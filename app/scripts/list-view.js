@@ -3,11 +3,22 @@ var ListView = Backbone.View.extend({
 
 	createTemplate: _.template($('#list-item-template').text()),
 
+	events: {
+		'click': 'setMainItem'
+	},
+
 	initialize: function(){
 		$('.js-contact-list').prepend( this.el );
 		
 		this.render();
 
+	},
+
+
+	setMainItem: function(){
+		new MainView({model: this.model})
+
+		console.log(this.model.attributes)
 
 	},
 
@@ -19,4 +30,7 @@ var ListView = Backbone.View.extend({
 	}
 
 });
+
+
+
 
